@@ -6,12 +6,6 @@ return {
     event = { "InsertLeave", "TextChanged" }, -- Load on these events
     opts = {
       enabled = true, -- Enable auto-save on startup
-      execution_message = {
-        enabled = true, -- Enable save notifications to see when files are saved
-        message = function() -- Message function for save notifications
-          return ("AutoSave: saved at " .. vim.fn.strftime("%H:%M:%S"))
-        end,
-      },
       trigger_events = { -- Events that trigger auto-save
         immediate_save = { "BufLeave", "FocusLost" }, -- Save immediately on these events
         defer_save = { "InsertLeave", "TextChanged" }, -- Save with debounce on these events

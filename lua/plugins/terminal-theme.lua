@@ -1,15 +1,20 @@
--- Configure Neovim to use terminal colors
+-- Configure Neovim to use terminal background only
 return {
-  -- Disable LazyVim's default colorscheme loading
+  -- Keep LazyVim's default colorscheme but with terminal background
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = function()
-        -- Set Neovim to use terminal colors
-        vim.cmd("highlight clear")
-        vim.cmd("set termguicolors&")
-        vim.opt.background = "dark" -- or "light" depending on your terminal theme
-      end,
+      colorscheme = "tokyonight",
+    },
+  },
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      transparent = true, -- This makes the background transparent, showing terminal background
+      styles = {
+        sidebars = "transparent",
+        floats = "transparent",
+      },
     },
   },
 }
